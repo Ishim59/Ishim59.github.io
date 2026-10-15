@@ -10,7 +10,19 @@ public sealed class DatabaseInitializer(GymnasiumDbContext database, ContentCata
     public async Task InitializeAsync(CancellationToken cancellationToken = default)
     {
         await database.Database.MigrateAsync(cancellationToken);
-        // Seed only through an explicit command, never each time the application starts.
+        // Seeding is separate from migrations and must be explicitly enabled.
+    }
+
+    public async Task SeedFirstRunAsync(CancellationToken cancellationToken = default)
+    {
+        await using var transaction = await database.Database.BeginTransactionAsync(cancellationToken);
+        // The unique marker also serializes concurrent first deployments.
+        // Its insert and all news inserts commit together, or are rolled back together.
+        var claimed = await database.Database.ExecuteSqlRawAsync(
+            "INSERT INTO application_initializations (\"Name\", \"CompletedAt\") " +
+            "VALUES ('initial-news', CURRENT_TIMESTAMP) ON CONFLICT (\"Name\") DO NOTHING", cancellationToken);
+        if (claimed == 1) await SeedAsync(cancellationToken);
+        await transaction.CommitAsync(cancellationToken);
     }
 
     public async Task SeedAsync(CancellationToken cancellationToken = default)

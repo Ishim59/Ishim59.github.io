@@ -53,11 +53,13 @@ app.UseAuthorization();
 app.UseRateLimiter();
 app.MapControllers();
 
-if (args.Contains("--migrate") || args.Contains("--seed") || builder.Configuration.GetValue<bool>("Database:ApplyMigrations"))
+if (args.Contains("--migrate") || args.Contains("--seed") || builder.Configuration.GetValue<bool>("Database:ApplyMigrations")
+    || builder.Configuration.GetValue<bool>("Database:SeedOnFirstRun"))
 {
     await using var scope = app.Services.CreateAsyncScope();
     var initializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
     await initializer.InitializeAsync();
+    if (builder.Configuration.GetValue<bool>("Database:SeedOnFirstRun")) await initializer.SeedFirstRunAsync();
     if (args.Contains("--seed")) await initializer.SeedAsync();
     if (args.Contains("--migrate") || args.Contains("--seed")) return;
 }

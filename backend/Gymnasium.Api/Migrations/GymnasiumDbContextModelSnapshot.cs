@@ -22,6 +22,20 @@ namespace Gymnasium.Api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("Gymnasium.Api.Models.ApplicationInitialization", b =>
+                {
+                    b.Property<string>("Name")
+                        .HasMaxLength(100)
+                        .HasColumnType("character varying(100)");
+
+                    b.Property<DateTimeOffset>("CompletedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("Name");
+
+                    b.ToTable("application_initializations", (string)null);
+                });
+
             modelBuilder.Entity("Gymnasium.Api.Models.NewsArticle", b =>
                 {
                     b.Property<string>("Slug")

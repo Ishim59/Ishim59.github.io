@@ -6,9 +6,15 @@ namespace Gymnasium.Api.Data;
 public sealed class GymnasiumDbContext(DbContextOptions<GymnasiumDbContext> options) : DbContext(options)
 {
     public DbSet<NewsArticle> News => Set<NewsArticle>();
+    public DbSet<ApplicationInitialization> Initializations => Set<ApplicationInitialization>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        var initialization = modelBuilder.Entity<ApplicationInitialization>();
+        initialization.ToTable("application_initializations");
+        initialization.HasKey(task => task.Name);
+        initialization.Property(task => task.Name).HasMaxLength(100);
+
         var news = modelBuilder.Entity<NewsArticle>();
         news.ToTable("news_articles");
         news.HasKey(article => article.Slug);

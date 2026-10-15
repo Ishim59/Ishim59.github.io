@@ -1,3 +1,6 @@
+using Gymnasium.Api.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 using System.Net.Http.Json;
 using System.Security.Cryptography;
@@ -109,6 +112,29 @@ public sealed class NewsApiTests
         var page = await client.GetStringAsync("/api/pages/documents");
         Assert.Contains("documents", page);
         Assert.Equal(HttpStatusCode.NotFound, (await client.GetAsync("/api/pages/not-a-page")).StatusCode);
+    }
+
+    [PostgresFact]
+    public async Task FirstRunSeedNeverRestoresDeletedNews()
+    {
+        await using var factory = new ApiFactory();
+        using var client = factory.CreateClient();
+        await using var scope = factory.Services.CreateAsyncScope();
+        var initializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
+        var database = scope.ServiceProvider.GetRequiredService<GymnasiumDbContext>();
+        await initializer.SeedFirstRunAsync();
+        var original = await database.News.AsNoTracking().SingleAsync(article => article.Slug == "pushkin-card");
+        try
+        {
+            await database.News.Where(article => article.Slug == original.Slug).ExecuteDeleteAsync();
+            await initializer.SeedFirstRunAsync();
+            Assert.False(await database.News.AnyAsync(article => article.Slug == original.Slug));
+        }
+        finally
+        {
+            database.News.Add(original);
+            await database.SaveChangesAsync();
+        }
     }
 
     private static ArticleRequest Article(string slug) => new(slug, "Test article", "Test summary", "<script>alert('unsafe')</script>", "2026-10-15");
