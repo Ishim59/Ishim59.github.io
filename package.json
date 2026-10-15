@@ -1,0 +1,21 @@
+{
+  "name": "barda-gymnasium-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:server": "node scripts/build.mjs --output dist --api-base /api",
+    "check": "node scripts/check-links.mjs",
+    "test": "node --test tests/frontend/*.test.mjs",
+    "format": "prettier --write src content scripts tests/frontend assets/js assets/css index.html pages \"*/index.html\"",
+    "format:check": "prettier --check src content scripts tests/frontend"
+  },
+  "devDependencies": {
+    "parse5": "^7.3.0",
+    "prettier": "3.6.2"
+  }
+}

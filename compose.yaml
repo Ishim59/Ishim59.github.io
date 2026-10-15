@@ -1,0 +1,31 @@
+services:
+  database:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-gymnasium}
+      POSTGRES_USER: ${POSTGRES_USER:-gymnasium}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  api:
+    build: .
+    ports:
+      - "127.0.0.1:5080:8080"
+    environment:
+      ConnectionStrings__Postgres: "Host=database;Port=5432;Database=${POSTGRES_DB:-gymnasium};Username=${POSTGRES_USER:-gymnasium};Password=${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD}"
+      Admin__ApiKey: ${ADMIN_API_KEY:?Set ADMIN_API_KEY in .env}
+      Site__ContentRoot: /app/content
+      Site__StaticRoot: /app/wwwroot
+      Database__ApplyMigrations: "true"
+    depends_on:
+      database:
+        condition: service_healthy
+volumes:
+  postgres-data:

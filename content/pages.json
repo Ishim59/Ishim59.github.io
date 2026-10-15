@@ -1,0 +1,163 @@
+[
+  {
+    "slug": "meals",
+    "title": "Меню горячего питания",
+    "url": "/meals/",
+    "file": "meals.html",
+    "legacyUrl": "/pages/food-html.html"
+  },
+  {
+    "slug": "feedback",
+    "title": "Обратная связь",
+    "url": "/feedback/",
+    "file": "feedback.html",
+    "legacyUrl": "/pages/index-0-3.html"
+  },
+  {
+    "slug": "documents",
+    "title": "Документы",
+    "url": "/documents/",
+    "file": "documents.html",
+    "legacyUrl": "/pages/index-dokumenty-0-96.html"
+  },
+  {
+    "slug": "additional-education",
+    "title": "Дополнительное образование",
+    "url": "/additional-education/",
+    "file": "additional-education.html",
+    "legacyUrl": "/pages/index-dop_programm-0-140.html"
+  },
+  {
+    "slug": "electronic-journal",
+    "title": "Электронный журнал",
+    "url": "/electronic-journal/",
+    "file": "electronic-journal.html",
+    "legacyUrl": "/pages/index-ehlektronnyj_zhurnal-0-134.html"
+  },
+  {
+    "slug": "distance-learning",
+    "title": "Электронное обучение",
+    "url": "/distance-learning/",
+    "file": "distance-learning.html",
+    "legacyUrl": "/pages/index-eho_i_dot-0-167.html"
+  },
+  {
+    "slug": "schedule",
+    "title": "Расписание занятий",
+    "url": "/schedule/",
+    "file": "schedule.html",
+    "legacyUrl": "/pages/index-gimnazistam-0-23.html"
+  },
+  {
+    "slug": "history",
+    "title": "История гимназии",
+    "url": "/history/",
+    "file": "history.html",
+    "legacyUrl": "/pages/index-istorija-0-64.html"
+  },
+  {
+    "slug": "teachers/liliya-musina",
+    "title": "Мусина Лилия Ильсуровна",
+    "url": "/teachers/liliya-musina/",
+    "file": "teachers-liliya-musina.html",
+    "legacyUrl": "/pages/index-musina_lilija_ilsurovna-0-112.html"
+  },
+  {
+    "slug": "education",
+    "title": "Образование",
+    "url": "/education/",
+    "file": "education.html",
+    "legacyUrl": "/pages/index-obrazovanie-0-97.html"
+  },
+  {
+    "slug": "meal-organization",
+    "title": "Организация питания",
+    "url": "/meal-organization/",
+    "file": "meal-organization.html",
+    "legacyUrl": "/pages/index-organizacija-pitanija-0-189.html"
+  },
+  {
+    "slug": "about",
+    "title": "Основные сведения",
+    "url": "/about/",
+    "file": "about.html",
+    "legacyUrl": "/pages/index-osnovnye_svedenija-0-94.html"
+  },
+  {
+    "slug": "teachers",
+    "title": "Педагогический состав",
+    "url": "/teachers/",
+    "file": "teachers.html",
+    "legacyUrl": "/pages/index-pedagogicheskij_sostav-0-101.html"
+  },
+  {
+    "slug": "admissions",
+    "title": "Приём в первый класс",
+    "url": "/admissions/",
+    "file": "admissions.html",
+    "legacyUrl": "/pages/index-priem_v_1_klass-0-88.html"
+  },
+  {
+    "slug": "health",
+    "title": "Профилактика заболеваний",
+    "url": "/health/",
+    "file": "health.html",
+    "legacyUrl": "/pages/index-profilaktika_zabolevanij-0-157.html"
+  },
+  {
+    "slug": "specialized-classes",
+    "title": "Предпрофильные направления",
+    "url": "/specialized-classes/",
+    "file": "specialized-classes.html",
+    "legacyUrl": "/pages/index-profili-0-230.html"
+  },
+  {
+    "slug": "curriculum",
+    "title": "Рабочие программы",
+    "url": "/curriculum/",
+    "file": "curriculum.html",
+    "legacyUrl": "/pages/index-rabochie_programmy-0-165.html"
+  },
+  {
+    "slug": "parents",
+    "title": "Родителям",
+    "url": "/parents/",
+    "file": "parents.html",
+    "legacyUrl": "/pages/index-roditeljam-0-138.html"
+  },
+  {
+    "slug": "growth-center",
+    "title": "Точка роста",
+    "url": "/growth-center/",
+    "file": "growth-center.html",
+    "legacyUrl": "/pages/index-tochka_rosta-0-151.html"
+  },
+  {
+    "slug": "news/financial-security",
+    "title": "Что нужно знать о дропперстве",
+    "url": "/news/financial-security/",
+    "file": "news-financial-security.html",
+    "legacyUrl": "/pages/news-dropperstvo-2026-09-24-592.html"
+  },
+  {
+    "slug": "news/flu-prevention",
+    "title": "Осторожно, грипп",
+    "url": "/news/flu-prevention/",
+    "file": "news-flu-prevention.html",
+    "legacyUrl": "/pages/news-ostorozhno_gripp-2026-09-21-466.html"
+  },
+  {
+    "slug": "news/pushkin-card",
+    "title": "Пушкинская карта",
+    "url": "/news/pushkin-card/",
+    "file": "news-pushkin-card.html",
+    "legacyUrl": "/pages/news-pushkin-2026-09-14-590.html"
+  },
+  {
+    "slug": "news",
+    "title": "Новости гимназии",
+    "url": "/news/",
+    "file": "news.html",
+    "legacyUrl": "/pages/news.html"
+  }
+]

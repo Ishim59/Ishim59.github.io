@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "financial-security",
+    "title": "Что нужно знать о дропперстве",
+    "publishedAt": "2026-09-24",
+    "summary": "Материалы о финансовой безопасности.",
+    "contentFile": "news-financial-security.html"
+  },
+  {
+    "slug": "flu-prevention",
+    "title": "Осторожно, грипп",
+    "publishedAt": "2026-09-21",
+    "summary": "Информация о профилактике сезонных заболеваний.",
+    "contentFile": "news-flu-prevention.html"
+  },
+  {
+    "slug": "pushkin-card",
+    "title": "Пушкинская карта",
+    "publishedAt": "2026-09-14",
+    "summary": "Возможности для знакомства с культурой.",
+    "contentFile": "news-pushkin-card.html"
+  }
+]

@@ -1,0 +1,39 @@
+name: Check frontend and API
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_DB: gymnasium_test
+          POSTGRES_USER: gymnasium_test
+          POSTGRES_PASSWORD: ci-only-test-password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U gymnasium_test -d gymnasium_test"
+          --health-interval 5s --health-timeout 3s --health-retries 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: npm test
+      - run: npm run check
+      - run: npm run format:check
+      - run: npm run build:server
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+      - run: dotnet test Gymnasium.sln --configuration Release
+        env:
+          TEST_POSTGRES: Host=localhost;Port=5432;Database=gymnasium_test;Username=gymnasium_test;Password=ci-only-test-password

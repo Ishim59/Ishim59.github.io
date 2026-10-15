@@ -1,0 +1,79 @@
+.utility {
+  background: #eef1e9;
+  font-size: 11px;
+}
+.utility .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 38px;
+}
+.utility .wrap > div {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.utility button {
+  background: none;
+  border: 0;
+  color: inherit;
+  font-size: 11px;
+  padding: 8px 0;
+}
+header {
+  height: 104px;
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 17px;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.brand small {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 54px;
+  background: var(--green);
+  color: #fff;
+  border-radius: 2px 2px 18px 18px;
+}
+.mark svg {
+  width: 38px;
+}
+nav {
+  display: flex;
+  gap: 25px;
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+}
+nav a:hover,
+.text-link:hover {
+  color: #8c5e28;
+}
+.icon-button {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+  font-size: 27px;
+  flex-shrink: 0;
+}
+.menu-button {
+  display: none;
+}
